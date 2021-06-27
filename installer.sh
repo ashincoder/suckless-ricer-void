@@ -7,7 +7,7 @@ echo "Installing Dependencies and folders"
 sudo xbps-install -Su xdg-utils xdg-user-dirs
 xdg-user-dirs-update
 
-sudo xbps-install -S zathura zathura-pdf-mupdf exa bat dust xrandr libX11-devel lm_sensors libXinerama-devel python3 python3-pip libXft-devel xwallpaper wget curl zip unzip firefox starship zsh zsh-syntax-highlighting zsh-autosuggestions cmake
+sudo xbps-install -S zathura zathura-pdf-mupdf exa bat dust xrandr libX11-devel libXinerama-devel python3 python3-pip libXft-devel xwallpaper wget curl zip unzip firefox starship zsh zsh-syntax-highlighting zsh-autosuggestions cmake
 
 echo "Setting fonts"
 
@@ -89,10 +89,11 @@ cd || exit
 
 echo "Downloading Wallpapers"
 
-cd ~/Pictures || exit
-wget https://github.com/ashincoder/wallpapers/archive/refs/tags/v1.0.zip
+cd /usr/share/backgrounds/ || exit
+sudo wget https://raw.githubusercontent.com/ashincoder/wallpapers/main/neon.png
+sudo wget https://raw.githubusercontent.com/ashincoder/wallpapers/main/0023.jpg
+mv 0023.jpg nature.jpg
 sleep 5
-sudo mv wallpapers /usr/share/backgrounds
 
 echo "Neovim installation"
 cd ~/Downloads || exit
