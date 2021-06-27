@@ -4,13 +4,14 @@
 
 echo "Installing Dependencies and folders"
 
-sudo xbps-install -Su xdg-utils xdg-user-dirs
+sudo xbps-install -Su git xdg-utils xdg-user-dirs
 xdg-user-dirs-update
 
 sudo xbps-install -S zathura zathura-pdf-mupdf exa bat dust xrandr libX11-devel libXinerama-devel python3 python3-pip libXft-devel xwallpaper wget curl zip unzip firefox starship zsh zsh-syntax-highlighting zsh-autosuggestions cmake
 
 echo "Setting fonts"
 
+sudo xbps-install -S noto-fonts-emoji
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/JetBrainsMono.zip
 unzip JetBrainsMono.zip
 mkdir -p $HOME/.local/share/fonts/JetBrainsMono && mv -- *.ttf $HOME/.local/share/fonts/JetBrainsMono
@@ -18,16 +19,6 @@ echo "Font cache"
 fc-cache -f -v
 sudo ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
 sudo xbps-reconfigure -f fontconfig
-
-echo "Setting zsh shell"
-
-chsh $USER
-cd || exit
-zdot=~/.config/zsh/
-wget https://raw.githubusercontent.com/ashincoder/dotfiles/master/.zshenv
-mkdir -p $zdot
-cd $zdot || exit
-wget https://raw.githubusercontent.com/ashincoder/dotfiles/master/.config/zsh/.zshrc
 
 echo "Setting up directories"
 
@@ -40,7 +31,7 @@ autostart=~/.local/share/dwm
 echo "downloading autostart script"
 
 cd $autostart || exit
-wget https://raw.githubusercontent.com/ashincoder/dotfiles/master/.local/share/dwm/autostart.sh
+wget https://raw.githubusercontent.com/ashincoder/dotfiles-void/master/.local/share/dwm/autostart.sh
 chmod +x autostart.sh
 cd || exit
 
@@ -108,3 +99,13 @@ git clone https://github.com/ashincoder/AshVim
 sleep 5
 cd AshVim || exit
 ./install.sh
+
+echo "Setting zsh shell"
+
+cd || exit
+zdot=~/.config/zsh/
+wget https://raw.githubusercontent.com/ashincoder/dotfiles-void/master/.zshenv
+mkdir -p $zdot
+cd $zdot || exit
+wget https://raw.githubusercontent.com/ashincoder/dotfiles-void/master/.config/zsh/.zshrc
+chsh $USER
