@@ -80,6 +80,7 @@ cd || exit
 
 echo "Downloading Wallpapers"
 
+sudo mkdir /usr/share/backgrounds
 cd /usr/share/backgrounds/ || exit
 sudo wget https://raw.githubusercontent.com/ashincoder/wallpapers/main/neon.png
 sudo wget https://raw.githubusercontent.com/ashincoder/wallpapers/main/0023.jpg
