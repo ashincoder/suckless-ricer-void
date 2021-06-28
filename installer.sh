@@ -7,7 +7,7 @@ echo "Installing Dependencies and folders"
 sudo xbps-install -Su git xdg-utils xdg-user-dirs
 xdg-user-dirs-update
 
-sudo xbps-install -S zathura zathura-pdf-mupdf exa bat dust xrandr libX11-devel libXinerama-devel python3 python3-pip libXft-devel xwallpaper wget curl zip unzip firefox starship zsh zsh-syntax-highlighting zsh-autosuggestions cmake
+sudo xbps-install -S python3-dbus zathura zathura-pdf-mupdf exa bat dust xrandr libX11-devel libXinerama-devel python3 python3-pip libXrender-devel xorg-utils-macros xwallpaper wget curl zip unzip firefox starship zsh zsh-syntax-highlighting zsh-autosuggestions cmake
 
 echo "Setting fonts"
 
@@ -41,6 +41,7 @@ git clone https://github.com/ashincoder/scripts.git .
 rm -rf .git
 
 config=~/.config/suckless
+mkdir -p $config
 cd $config || exit
 
 echo "Compiling Dwm"
@@ -84,7 +85,7 @@ sudo mkdir /usr/share/backgrounds
 cd /usr/share/backgrounds/ || exit
 sudo wget https://raw.githubusercontent.com/ashincoder/wallpapers/main/neon.png
 sudo wget https://raw.githubusercontent.com/ashincoder/wallpapers/main/0023.jpg
-mv 0023.jpg nature.jpg
+sudo mv 0023.jpg nature.jpg
 sleep 5
 
 echo "Neovim installation"
@@ -110,3 +111,9 @@ mkdir -p $zdot
 cd $zdot || exit
 wget https://raw.githubusercontent.com/ashincoder/dotfiles-void/master/.config/zsh/.zshrc
 chsh $USER
+
+echo "Installing libXft-bgra"
+git clone https://github.com/uditkarode/libxft-bgra
+cd libxft-bgra
+sudo sh autogen.sh --sysconfdir=/etc --prefix=/usr --mandir=/usr/share/man
+sudo make install
