@@ -79,6 +79,13 @@ cd sxiv-ashin || exit
 sudo make clean install
 cd || exit
 
+echo "Compiling Slock"
+git clone https://github.com/ashincoder/slock-ashin.git
+sleep 5
+cd slock-ashin || exit
+sudo make clean install
+cd ..
+
 echo "Downloading Wallpapers"
 
 sudo mkdir /usr/share/backgrounds
