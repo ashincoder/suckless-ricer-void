@@ -4,10 +4,10 @@
 
 echo "Installing Dependencies and folders"
 
-sudo xbps-install -Su git xdg-utils xdg-user-dirs
+sudo xbps-install -Syu git xdg-utils xdg-user-dirs
 xdg-user-dirs-update
 
-sudo xbps-install -S python3-dbus zathura zathura-pdf-mupdf exa bat dust xrandr libX11-devel libXinerama-devel python3 python3-pip libXrender-devel xorg-utils-macros xwallpaper wget curl zip unzip firefox starship zsh zsh-syntax-highlighting zsh-autosuggestions cmake
+sudo xbps-install -Sy harfbuzz-devel giflib-devel libexif-devel imlib2-devel zathura zathura-pdf-mupdf exa bat dust xrandr libX11-devel libXinerama-devel python3 python3-pip libXrender-devel xorg-utils-macros xwallpaper wget curl zip unzip firefox starship zsh zsh-syntax-highlighting zsh-autosuggestions cmake
 
 echo "Setting fonts"
 
@@ -19,6 +19,7 @@ echo "Font cache"
 fc-cache -f -v
 sudo ln -s /usr/share/fontconfig/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d/
 sudo xbps-reconfigure -f fontconfig
+sudo xbps-install noto-font-ttf
 
 echo "Setting up directories"
 
@@ -121,6 +122,6 @@ chsh $USER
 
 echo "Installing libXft-bgra"
 git clone https://github.com/uditkarode/libxft-bgra
-cd libxft-bgra
+cd libxft-bgra || exit
 sudo sh autogen.sh --sysconfdir=/etc --prefix=/usr --mandir=/usr/share/man
 sudo make install
