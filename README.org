@@ -1,6 +1,6 @@
 #+TITLE: Suckless Ricer for Void
 
-![[https://img.shields.io/github/license/ashincoder/suckless-ricer-void?logo=GNU]]
+[[https://github.com/ashincoder/suckless-ricer-void/blob/main/LICENSE][https://img.shields.io/github/license/ashincoder/suckless-ricer-void?logo=GNU?style=svg]]
 
 * Why did I make this?
 
