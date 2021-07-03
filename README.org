@@ -1,0 +1,17 @@
+#+TITLE: Suckless Ricer for Void
+
+* Why did I make this?
+
+This is a bootstrapping script for making my life easier for void linux. This compiles and install all the my dependencies and my suckless utilities.
+
+* How to work it?
+
+Nothing to do :
+
+#+begin_example
+git clone https://github.com/ashincoder/suckless-ricer-void
+cd suckless-ricer-void
+./installer.sh
+#+end_example
+
+That's it.
