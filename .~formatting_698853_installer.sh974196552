@@ -96,6 +96,20 @@ sudo wget https://raw.githubusercontent.com/ashincoder/wallpapers/main/0023.jpg
 sudo mv 0023.jpg nature.jpg
 sleep 5
 
+echo "Neovim installation"
+cd ~/Downloads || exit
+git clone https://github.com/neovim/neovim.git
+sleep 4
+cd neovim || exit
+make CMAKE_BUILD_TYPE=RelWithDebInfo
+sudo make install
+sleep 5
+cd .. || exit
+git clone https://github.com/ashincoder/AshVim
+sleep 5
+cd AshVim || exit
+./install.sh
+
 echo "Setting zsh shell"
 
 cd || exit
